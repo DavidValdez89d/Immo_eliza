@@ -185,6 +185,11 @@ X_train_poly = poly_features.fit_transform(X_train)
 poly_model = LinearRegression()
 poly_model.fit(X_train_poly, Y_train)
 
+#SAVE POLY FEATURES---------------------------------------------------------------
+with open("immo_poly_features.pkl","wb") as polyfeaturesfile:
+    pickle.dump(poly_features, polyfeaturesfile)
+print('Saved poly features')
+
 # predicting on training data-set
 y_train_predicted = poly_model.predict(X_train_poly)
 # predicting on test data-set

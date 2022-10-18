@@ -3,6 +3,8 @@ from pydantic import BaseModel
 import pickle
 import pandas as pd
 
+from Immo_eliza.preprocessing.cleaning_data import preprocess
+
 app = FastAPI()
 
 class ScoringItem(BaseModel):
@@ -35,7 +37,7 @@ with open("../model/immo_model.pkl","rb") as modelfile:
     
 @app.post('/')
 async def scoring_endpoint(item: Input):
-    return {"hello":"world"}
+    return (preprocess(item))
 
 # def predict(clean_data):
 #     """

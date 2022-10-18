@@ -106,23 +106,46 @@ def preprocess(element):
         #'type_of_property': element["data"]["property-type"],
         #'full_address': element["data"]["full-address"],
         #'zip_code_xx': element["data"]["zip-code"]
-        'number_of_bedrooms': element["data"]["rooms_number"],
-        'surface': element["data"]["area"],    
-        'fully_equipped_kitchen': 1 if element["data"]["equipped_kitchen"] == True else 0,
+        'number_of_bedrooms': element.data.rooms_number,
+        'surface': element.data.area,    
+        'fully_equipped_kitchen': 1 if element.data.equipped_kitchen == True else 0,
         #'furnished': element["data"]["furnished"],
-        'open_fire': 1 if element["data"]["open_fire"] == True else 0,
+        'open_fire': 1 if element.data.open_fire == True else 0,
         #'terrace': element["data"]["terrace"],
-        'terrace_surface': element["data"]["terrace_area"] if element["data"]["terrace_area"] is not None else 0,
-        'garden': 1 if element["data"]["garden"] == True else 0,
+        'terrace_surface': element.data.terrace_area if element.data.terrace_area is not None else 0,
+        'garden': 1 if element.data.garden == True else 0,
         #'garden_surface': element["data"]["garden-area"],
         #'land_surface': element["data"]["land-area"],
-        'number_of_facades': element["data"]["facades_number"] if element["data"]["facades_number"] is not None else 1 if element["data"]["property_type"] == 'APARTMENT' else 2,
-        'swimming_pool': 1 if element["data"]["swimming_pool"] == True else 0,
-        'state_of_the_building': state_of_the_building_dict[element["data"]["building_state"]] if element["data"]["building_state"] is not None else 0.87252,
-        'zip_code_ratio': zip_code_dict_xx['be_zip_'+str(element["data"]["zip_code"])[:2]],
-        'HOUSE': 1 if element["data"]["property_type"] == 'HOUSE' else 0,
-        'APARTMENT': 1 if element["data"]["property_type"] == 'APARTMENT' else 0
+        'number_of_facades': element.data.facades_number if element.data.facades_number is not None else 1 if element.data.property_type == 'APARTMENT' else 2,
+        'swimming_pool': 1 if element.data.swimming_pool == True else 0,
+        'state_of_the_building': state_of_the_building_dict[element.data.building_state] if element.data.building_state is not None else 0.87252,
+        'zip_code_ratio': zip_code_dict_xx['be_zip_'+str(element.data.zip_code)[:2]],
+        'HOUSE': 1 if element.data.property_type == 'HOUSE' else 0,
+        'APARTMENT': 1 if element.data.property_type == 'APARTMENT' else 0
         }
     return list(transformed_elment.values())
+
+    # transformed_elment = {
+    #     #'type_of_property': element["data"]["property-type"],
+    #     #'full_address': element["data"]["full-address"],
+    #     #'zip_code_xx': element["data"]["zip-code"]
+    #     'number_of_bedrooms': element["data"]["rooms_number"],
+    #     'surface': element["data"]["area"],    
+    #     'fully_equipped_kitchen': 1 if element["data"]["equipped_kitchen"] == True else 0,
+    #     #'furnished': element["data"]["furnished"],
+    #     'open_fire': 1 if element["data"]["open_fire"] == True else 0,
+    #     #'terrace': element["data"]["terrace"],
+    #     'terrace_surface': element["data"]["terrace_area"] if element["data"]["terrace_area"] is not None else 0,
+    #     'garden': 1 if element["data"]["garden"] == True else 0,
+    #     #'garden_surface': element["data"]["garden-area"],
+    #     #'land_surface': element["data"]["land-area"],
+    #     'number_of_facades': element["data"]["facades_number"] if element["data"]["facades_number"] is not None else 1 if element["data"]["property_type"] == 'APARTMENT' else 2,
+    #     'swimming_pool': 1 if element["data"]["swimming_pool"] == True else 0,
+    #     'state_of_the_building': state_of_the_building_dict[element["data"]["building_state"]] if element["data"]["building_state"] is not None else 0.87252,
+    #     'zip_code_ratio': zip_code_dict_xx['be_zip_'+str(element["data"]["zip_code"])[:2]],
+    #     'HOUSE': 1 if element["data"]["property_type"] == 'HOUSE' else 0,
+    #     'APARTMENT': 1 if element["data"]["property_type"] == 'APARTMENT' else 0
+    #     }
+    # return list(transformed_elment.values())
     
  
