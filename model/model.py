@@ -125,34 +125,35 @@ df['zip_code_ratio'] = df['zip_code_ratio'].map(dic_zip_value)
 #CLEAN DATA-------------------------------------------------------------
 
 filtered_atributes = [
-    'price',
-    #'id',
- #'locality',
- #'postal_code',
- #'region',
- #'province',
- #'type_of_property',
- #'subtype_of_property',
- #'type_of_sale',
- 'number_of_bedrooms',
- 'surface',
- #'kitchen_type',
- 'fully_equipped_kitchen',
- #'furnished',
- 'open_fire',
- #'terrace',
- 'terrace_surface',
- 'garden',
- #'garden_surface',
- #'land_surface',
- 'number_of_facades',
- 'swimming_pool',
- 'state_of_the_building',
- #'zip_code_xx',
- #'price_m2',
- 'zip_code_ratio',
-'HOUSE',
-'APARTMENT']
+                    'price',
+                    #'id',
+                    #'locality',
+                    #'postal_code',
+                    #'region',
+                    #'province',
+                    #'type_of_property',
+                    #'subtype_of_property',
+                    #'type_of_sale',
+                    'number_of_bedrooms',
+                    'surface',
+                    #'kitchen_type',
+                    'fully_equipped_kitchen',
+                    #'furnished',
+                    'open_fire',
+                    #'terrace',
+                    'terrace_surface',
+                    'garden',
+                    #'garden_surface',
+                    #'land_surface',
+                    'number_of_facades',
+                    'swimming_pool',
+                    'state_of_the_building',
+                    #'zip_code_xx',
+                    #'price_m2',
+                    'zip_code_ratio',
+                    'HOUSE',
+                    'APARTMENT'
+                    ]
 
 #filter the atributes that we need
 df = df[filtered_atributes]
@@ -163,7 +164,7 @@ print('Data cleaned')
 #split the data
 X = df.iloc[:,1:].values  #features
 Y = df.iloc[:,0].values  #target : price
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state=5)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1, random_state=3)
 print('Data splited')
 
 #scale the data
